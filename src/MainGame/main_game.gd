@@ -14,6 +14,7 @@ const GAME_MENU = preload("res://src/MainGame/GUI/game_menu.tscn")
 func _ready() -> void:
 	SignalBus.spawn_game_menu.connect(add_child)
 	SignalBus.save.connect(_on_save)
+	SignalBus.delete_save.connect(_on_delete_save)
 
 
 func _on_world_map_data_set(map_data: MapData) -> void:
@@ -34,6 +35,14 @@ func _on_world_map_data_set(map_data: MapData) -> void:
 
 func _on_save(map_data: MapData, and_quit: bool) -> void:
 	var did_save = ResourceSaver.save(map_data, SAVE_PATH)
+	if and_quit:
+		get_tree().quit()
+	else:
+		transition_requested.emit(main_menu_scene)
+
+
+func _on_delete_save(and_quit: bool) -> void:
+	DirAccess.remove_absolute(SAVE_PATH)
 	if and_quit:
 		get_tree().quit()
 	else:

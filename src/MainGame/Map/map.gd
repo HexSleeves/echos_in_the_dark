@@ -42,4 +42,7 @@ func set_map_data(new_map_data: MapData) -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		SignalBus.save.emit(_map_data, true)
+		if _map_data.player_entity.has_component(Component.Type.Durability):
+			SignalBus.save.emit(_map_data, true)
+		else:
+			SignalBus.delete_save.emit(true)
