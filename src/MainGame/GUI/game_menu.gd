@@ -46,7 +46,7 @@ func _add_button(text: String, index: int, small_mode: bool) -> void:
 	button.clip_text = true
 	button.text = String.chr("a".unicode_at(0) + index) + ") " + text
 	var shortcut_event := InputEventKey.new()
-	shortcut_event.keycode = KEY_A + index
+	shortcut_event.keycode = (KEY_A + index) as Key
 	button.shortcut = Shortcut.new()
 	button.shortcut.events = [shortcut_event]
 	button.pressed.connect(_on_button_pressed.bind(index))

@@ -34,7 +34,7 @@ func _on_world_map_data_set(map_data: MapData) -> void:
 
 
 func _on_save(map_data: MapData, and_quit: bool) -> void:
-	var did_save = ResourceSaver.save(map_data, SAVE_PATH)
+	ResourceSaver.save(map_data, SAVE_PATH)
 	if and_quit:
 		get_tree().quit()
 	else:
