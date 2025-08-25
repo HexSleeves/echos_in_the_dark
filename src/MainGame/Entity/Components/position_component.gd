@@ -7,6 +7,8 @@ extends Component
 		var old_position := position
 		position = value
 		if _parent_entity:
+			_parent_entity.map_data.entities_by_position.get(old_position, []).erase(_parent_entity)
+			_parent_entity.map_data.entities_by_position.get_or_add(position, []).append(_parent_entity)
 			var message := Message.new("position_update").with_data({"position": position, "old_position": old_position})
 			_parent_entity.process_message(message)
 

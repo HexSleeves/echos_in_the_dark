@@ -8,6 +8,7 @@ const BLOCKING_ENTITY_PATHFIND_WEIGHT = 5
 var _TILE_SIZE: Vector2 = ProjectSettings.get_setting("global/tile_size")
 
 @export_storage var entities: Array[Entity]
+@export_storage var entities_by_position: Dictionary[Vector2i, Array]
 @export_storage var tiles: Dictionary[Vector2i, Tile]
 @export_storage var size: Vector2i
 @export_storage var player_entity: Entity
@@ -25,6 +26,9 @@ func spawn_entity_at(entity: Entity, position: Vector2i) -> void:
 
 func remove_entity(entity: Entity) -> void:
 	entities.erase(entity)
+	var position_component: PositionComponent = entity.get_component(Component.Type.Position)
+	if position_component:
+		entities_by_position[position_component.position].erase(entity)
 	entity.map_data = null
 	entity.process_message(Message.new("exit_map"))
 
@@ -64,13 +68,7 @@ func get_entities_with_components(component_types: Array[Component.Type]) -> Arr
 
 
 func get_entities_at_position(position: Vector2i) -> Array[Entity]:
-	return entities.filter(
-		func(e: Entity) -> bool:
-			var position_component: PositionComponent = e.get_component(Component.Type.Position)
-			if not position_component:
-				return false
-			return position_component.position == position
-	)
+	return Array(entities_by_position.get(position, []), TYPE_OBJECT, "Resource", Entity)
 
 
 func get_blocking_entity_at_position(position: Vector2i) -> Entity:
