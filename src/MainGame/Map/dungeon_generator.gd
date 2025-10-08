@@ -51,7 +51,7 @@ func generate_dungeon(player: Entity, current_floor: int = 1) -> MapData:
 		
 		rooms.append(new_room)
 	
-	var staircase_position: Vector2i = rooms.front().get_center()
+	var staircase_position: Vector2i = rooms.back().get_center()
 	var staircase: Entity = RESOURCE_COLLECTION.entities["stairs"].reify()
 	var stairs_component: StairsComponent = staircase.get_component(Component.Type.Stairs)
 	stairs_component.set_current_floor(current_floor)

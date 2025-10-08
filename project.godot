@@ -26,6 +26,10 @@ SignalBus="*res://src/MainGame/Globals/signal_bus.gd"
 gdscript/warnings/unused_signal=0
 gdscript/warnings/shadowed_variable=0
 
+[display]
+
+window/stretch/scale_mode="integer"
+
 [global]
 
 tile_size=Vector2(16, 16)

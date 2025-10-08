@@ -5,6 +5,6 @@ extends UseEffect
 
 
 func apply(entity: Entity, _source: Entity) -> bool:
-	var effect: StatusEffect = status_effect.duplicate()
+	var effect: StatusEffect = status_effect.duplicate(true)
 	entity.add_status_effect(effect)
 	return true

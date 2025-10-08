@@ -18,7 +18,8 @@ func process_message_execute(message: Message) -> void:
 			if not message.data.has("position"):
 				return
 			var solid: bool = message.flags.get("solid", true)
-			_parent_entity.map_data.pathfinder_set_point(message.data.get("position"), solid)
+			if _parent_entity.map_data:
+				_parent_entity.map_data.pathfinder_set_point(message.data.get("position"), solid)
 		"position_update":
 			_parent_entity.map_data.pathfinder_set_point(message.data.get("position"), true)
 			_parent_entity.map_data.pathfinder_set_point(message.data.get("old_position"), false)

@@ -18,7 +18,7 @@ func apply_effect_execute(message: Message) -> void:
 func _enter_entity() -> void:
 	var duplicated: Array[EquippableEffect]
 	for effect: EquippableEffect in effects:
-		duplicated.append(effect.duplicate())
+		duplicated.append(effect.duplicate(true))
 	effects = duplicated
 
 

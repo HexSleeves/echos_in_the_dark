@@ -26,13 +26,13 @@ func _get_initial_components() -> Array[Component]:
 
 
 func reify() -> Entity:
-	var reified_entity: Entity = self.duplicate()
+	var reified_entity: Entity = self.duplicate(true)
 	reified_entity.initial_components = []
 	reified_entity.base_entity = null
 	
 	var component_list := _get_initial_components()
 	for component: Component in component_list:
-		reified_entity.enter_component(component.duplicate())
+		reified_entity.enter_component(component.duplicate(true))
 	
 	return reified_entity
 
