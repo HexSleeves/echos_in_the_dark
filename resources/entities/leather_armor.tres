@@ -16,9 +16,7 @@ region = Rect2(512, 16, 16, 16)
 [sub_resource type="Resource" id="Resource_ty1vw"]
 script = ExtResource("3_h2ub2")
 texture = SubResource("AtlasTexture_1y8v7")
-render_order = 2
 color = Color(0.42205, 0.220178, 0.0944457, 1)
-visible = true
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
 [sub_resource type="Resource" id="Resource_sv0bq"]
@@ -35,8 +33,6 @@ metadata/_custom_type_script = "uid://cd70fdldnl816"
 [resource]
 script = ExtResource("2_ncnro")
 name = "Leather Armor"
-is_proper_name = false
 initial_components = Array[ExtResource("1_y883e")]([SubResource("Resource_ty1vw"), SubResource("Resource_y56lr")])
 base_entity = ExtResource("2_evje5")
-_components = Dictionary[int, ExtResource("1_y883e")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

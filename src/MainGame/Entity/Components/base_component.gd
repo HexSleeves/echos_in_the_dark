@@ -1,3 +1,4 @@
+@abstract
 class_name Component
 extends Resource
 
@@ -33,9 +34,8 @@ var _parent_entity_ref: WeakRef = weakref(null)
 var type: Type: get = get_component_type
 
 
-func get_component_type() -> Type:
-	push_error("get_component_type() not properly implemented, called abstract base function!")
-	return Type.None
+@abstract
+func get_component_type() -> Type
 
 
 func _enter_entity() -> void:

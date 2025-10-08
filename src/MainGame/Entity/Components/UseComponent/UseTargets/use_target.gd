@@ -1,3 +1,4 @@
+@abstract
 class_name UseTarget
 extends Resource
 

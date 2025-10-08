@@ -1,3 +1,4 @@
+@abstract
 class_name StatusEffect
 extends Resource
 
@@ -25,6 +26,4 @@ func end(_entity: Entity) -> void:
 	pass
 
 
-func get_type() -> String:
-	push_error("Called abstract base function")
-	return ""
+@abstract func get_type() -> String

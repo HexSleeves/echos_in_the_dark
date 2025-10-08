@@ -17,9 +17,7 @@ region = Rect2(512, 208, 16, 16)
 [sub_resource type="Resource" id="Resource_jkbcf"]
 script = ExtResource("3_ofiaj")
 texture = SubResource("AtlasTexture_nxjq7")
-render_order = 2
 color = Color(1, 0, 0, 1)
-visible = true
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
 [sub_resource type="Resource" id="Resource_xnpum"]
@@ -33,7 +31,6 @@ metadata/_custom_type_script = "uid://d3f1rlool6nuv"
 
 [sub_resource type="Resource" id="Resource_useu2"]
 script = ExtResource("7_wtt45")
-uses = 1
 effects = Array[ExtResource("5_cdq7i")]([SubResource("Resource_xnpum")])
 targeting = SubResource("Resource_3abbk")
 usage_type = 0
@@ -42,8 +39,6 @@ metadata/_custom_type_script = "uid://cxkmnbpewqlaw"
 [resource]
 script = ExtResource("2_i42o4")
 name = "Healing Potion"
-is_proper_name = false
 initial_components = Array[ExtResource("1_1vfr4")]([SubResource("Resource_jkbcf"), SubResource("Resource_useu2")])
 base_entity = ExtResource("2_uyj11")
-_components = Dictionary[int, ExtResource("1_1vfr4")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

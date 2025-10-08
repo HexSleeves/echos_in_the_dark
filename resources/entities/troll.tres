@@ -19,7 +19,6 @@ script = ExtResource("3_0vqso")
 texture = SubResource("AtlasTexture_y3yb2")
 render_order = 3
 color = Color(0, 0.501961, 0, 1)
-visible = null
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
 [sub_resource type="Resource" id="Resource_ihfl1"]
@@ -27,10 +26,7 @@ script = ExtResource("5_od04i")
 max_hp = 12
 hp = 0
 defense = 1
-death_texture = ExtResource("5_y3yb2")
 death_color = Color(0.545098, 0, 0, 1)
-death_render_order = 1
-death_removes_movement_blocker = true
 metadata/_custom_type_script = "uid://b6mnki0ftt2gl"
 
 [sub_resource type="Resource" id="Resource_irq1h"]
@@ -46,8 +42,6 @@ metadata/_custom_type_script = "uid://cojdbwh6fjx3m"
 [resource]
 script = ExtResource("2_ljqeq")
 name = "Troll"
-is_proper_name = false
 initial_components = Array[ExtResource("1_an02v")]([SubResource("Resource_kyjyb"), SubResource("Resource_ihfl1"), SubResource("Resource_irq1h"), SubResource("Resource_fylnx")])
 base_entity = ExtResource("2_tvb75")
-_components = Dictionary[int, ExtResource("1_an02v")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

@@ -17,9 +17,7 @@ region = Rect2(528, 240, 16, 16)
 [sub_resource type="Resource" id="Resource_a47an"]
 script = ExtResource("3_j21g0")
 texture = SubResource("AtlasTexture_002m3")
-render_order = 2
 color = Color(1, 0, 0, 1)
-visible = true
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
 [sub_resource type="Resource" id="Resource_ogu33"]
@@ -31,12 +29,10 @@ metadata/_custom_type_script = "uid://b85pd7hw08adl"
 [sub_resource type="Resource" id="Resource_duwsb"]
 script = ExtResource("8_2s1v7")
 radius = 3
-can_target_self = true
 metadata/_custom_type_script = "uid://b60x04awcn2r"
 
 [sub_resource type="Resource" id="Resource_yieva"]
 script = ExtResource("7_qvlwd")
-uses = 1
 effects = Array[ExtResource("5_cvjok")]([SubResource("Resource_ogu33")])
 targeting = SubResource("Resource_duwsb")
 usage_type = 1
@@ -45,8 +41,6 @@ metadata/_custom_type_script = "uid://cxkmnbpewqlaw"
 [resource]
 script = ExtResource("2_38xso")
 name = "Firabell Scroll"
-is_proper_name = false
 initial_components = Array[ExtResource("1_iwy8g")]([SubResource("Resource_a47an"), SubResource("Resource_yieva")])
 base_entity = ExtResource("2_yevq7")
-_components = Dictionary[int, ExtResource("1_iwy8g")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

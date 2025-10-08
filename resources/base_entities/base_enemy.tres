@@ -17,10 +17,6 @@ metadata/_custom_type_script = "uid://dyweau1wmjl33"
 
 [sub_resource type="Resource" id="Resource_mys7k"]
 script = ExtResource("4_gic80")
-persistence = 5
-path = Array[Vector2i]([])
-last_known_player_position = Vector2i(0, 0)
-turns_remaining = 0
 metadata/_custom_type_script = "uid://d22g5mwk3tyic"
 
 [sub_resource type="Resource" id="Resource_hsaqe"]
@@ -35,12 +31,7 @@ metadata/_custom_type_script = "uid://br688f36nlduj"
 [sub_resource type="Resource" id="Resource_30wdv"]
 script = ExtResource("5_gic80")
 max_hp = 10
-hp = null
-defense = null
-death_texture = ExtResource("7_84o6h")
 death_color = Color(0.545098, 0, 0, 1)
-death_render_order = null
-death_removes_movement_blocker = null
 metadata/_custom_type_script = "uid://b6mnki0ftt2gl"
 
 [sub_resource type="Resource" id="Resource_pgl6n"]
@@ -50,8 +41,5 @@ metadata/_custom_type_script = "uid://bxu3263kr3sp0"
 
 [resource]
 script = ExtResource("2_5ytkn")
-name = ""
-is_proper_name = false
 initial_components = Array[ExtResource("1_v328p")]([SubResource("Resource_kim3o"), SubResource("Resource_d1mvl"), SubResource("Resource_30wdv"), SubResource("Resource_pgl6n")])
-_components = Dictionary[int, ExtResource("1_v328p")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

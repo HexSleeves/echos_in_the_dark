@@ -16,9 +16,7 @@ region = Rect2(528, 16, 16, 16)
 [sub_resource type="Resource" id="Resource_qsj4h"]
 script = ExtResource("3_13owe")
 texture = SubResource("AtlasTexture_i0118")
-render_order = 2
 color = Color(0.321728, 0.321728, 0.321728, 1)
-visible = true
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
 [sub_resource type="Resource" id="Resource_wpmr1"]
@@ -35,8 +33,6 @@ metadata/_custom_type_script = "uid://cd70fdldnl816"
 [resource]
 script = ExtResource("2_3cc3o")
 name = "Chain Mail"
-is_proper_name = false
 initial_components = Array[ExtResource("1_o748w")]([SubResource("Resource_qsj4h"), SubResource("Resource_mlwp5")])
 base_entity = ExtResource("2_7ptcg")
-_components = Dictionary[int, ExtResource("1_o748w")]({})
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"
