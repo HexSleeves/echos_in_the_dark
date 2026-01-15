@@ -9,6 +9,7 @@ enum Slot {
 	Cloak,
 	MainHand,
 	OffHand,
+	LightSource,
 }
 
 @export var starting_equipment: Array[Entity]

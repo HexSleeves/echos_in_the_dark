@@ -38,6 +38,8 @@ extends Resource
 	"confusion_scroll": {2: 10},
 	"sword": {4: 5},
 	"chain_mail": {6: 15},
+	"torch": {1: 40},
+	"lantern": {3: 15, 5: 25},
 }
 
 func get_floor_value(config_dict: Dictionary, current_floor: int) -> int:

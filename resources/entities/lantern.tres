@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=13 format=3 uid="uid://lantern_ent_001"]
+
+[ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_base"]
+[ext_resource type="Resource" uid="uid://ucbjo3vgbl24" path="res://resources/base_entities/base_item.tres" id="2_baseitem"]
+[ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="3_entity"]
+[ext_resource type="Script" uid="uid://baots4c6rxh58" path="res://src/MainGame/Entity/Components/drawable_component.gd" id="4_drawable"]
+[ext_resource type="Texture2D" uid="uid://cpfsrucab00uj" path="res://assets/1bitPack/Tilesheet/monochrome_packed.png" id="5_tileset"]
+[ext_resource type="Script" uid="uid://5lohuj57enwf" path="res://src/MainGame/Entity/Components/Equippable/EquippableEffect/equippable_effect.gd" id="6_effect_base"]
+[ext_resource type="Script" uid="uid://rbdjtjbnxufns" path="res://src/MainGame/Entity/Components/Equippable/EquippableEffect/light_radius_equippable_effect.gd" id="7_light_effect"]
+[ext_resource type="Script" uid="uid://cd70fdldnl816" path="res://src/MainGame/Entity/Components/Equippable/equippable_component.gd" id="8_equippable"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lantern"]
+atlas = ExtResource("5_tileset")
+region = Rect2(560, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_drawable"]
+script = ExtResource("4_drawable")
+texture = SubResource("AtlasTexture_lantern")
+color = Color(1.0, 0.9, 0.4, 1)
+metadata/_custom_type_script = "uid://baots4c6rxh58"
+
+[sub_resource type="Resource" id="Resource_light_effect"]
+script = ExtResource("7_light_effect")
+radius_bonus = 8
+metadata/_custom_type_script = "uid://rbdjtjbnxufns"
+
+[sub_resource type="Resource" id="Resource_equippable"]
+script = ExtResource("8_equippable")
+effects = Array[ExtResource("6_effect_base")]([SubResource("Resource_light_effect")])
+slot = 7
+metadata/_custom_type_script = "uid://cd70fdldnl816"
+
+[resource]
+script = ExtResource("3_entity")
+name = "Lantern"
+initial_components = Array[ExtResource("1_base")]([SubResource("Resource_drawable"), SubResource("Resource_equippable")])
+base_entity = ExtResource("2_baseitem")
+metadata/_custom_type_script = "uid://c4d0asmlvnv50"

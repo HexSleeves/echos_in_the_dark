@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=30 format=3 uid="uid://t6mjo4m3b26f"]
+[gd_resource type="Resource" script_class="Entity" load_steps=31 format=3 uid="uid://t6mjo4m3b26f"]
 
 [ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_udmkr"]
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="2_10qb1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bjlg8jprpo3lb" path="res://src/MainGame/Entity/Components/equipment_component.gd" id="15_yx42e"]
 [ext_resource type="Resource" uid="uid://71b0beumy6nc" path="res://resources/entities/dagger.tres" id="16_4gxn2"]
 [ext_resource type="Resource" uid="uid://c4rxt0rr85wud" path="res://resources/entities/leather_armor.tres" id="17_mu0au"]
+[ext_resource type="Resource" uid="uid://torch_entity_001" path="res://resources/entities/torch.tres" id="18_torch"]
 
 [sub_resource type="Resource" id="Resource_6rjwl"]
 script = ExtResource("2_ewad8")
@@ -70,7 +71,7 @@ metadata/_custom_type_script = "uid://cqskxy6lvk1wn"
 
 [sub_resource type="Resource" id="Resource_4wx6c"]
 script = ExtResource("15_yx42e")
-starting_equipment = Array[ExtResource("2_10qb1")]([ExtResource("16_4gxn2"), ExtResource("17_mu0au")])
+starting_equipment = Array[ExtResource("2_10qb1")]([ExtResource("16_4gxn2"), ExtResource("17_mu0au"), ExtResource("18_torch")])
 metadata/_custom_type_script = "uid://bjlg8jprpo3lb"
 
 [resource]

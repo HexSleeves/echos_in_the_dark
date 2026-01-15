@@ -8,7 +8,8 @@ const multipliers = [
 	[1, 0, 0, 1, -1, 0, 0, -1]
 ]
 
-@export var radius: int = 10
+## Base vision radius without any light source (near-blind in darkness)
+@export var radius: int = 2
 
 var _fov: Dictionary[Vector2i, bool] = {}
 

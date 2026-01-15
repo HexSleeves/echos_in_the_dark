@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceCollection" load_steps=18 format=3 uid="uid://dhuel5llscocm"]
+[gd_resource type="Resource" script_class="ResourceCollection" load_steps=20 format=3 uid="uid://dhuel5llscocm"]
 
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="1_0bm4k"]
 [ext_resource type="Resource" uid="uid://corohn4y8go5s" path="res://resources/entities/healing_potion.tres" id="2_0bm4k"]
@@ -17,6 +17,8 @@
 [ext_resource type="Resource" uid="uid://cufilifqykitr" path="res://resources/tiles/floor.tres" id="12_e0bmq"]
 [ext_resource type="Resource" uid="uid://5rw7lw4l8hio" path="res://resources/entities/sword.tres" id="12_rl7wd"]
 [ext_resource type="Resource" uid="uid://tgfnn0dsowxm" path="res://resources/tiles/wall.tres" id="13_yhf55"]
+[ext_resource type="Resource" uid="uid://torch_entity_001" path="res://resources/entities/torch.tres" id="14_torch"]
+[ext_resource type="Resource" uid="uid://lantern_ent_001" path="res://resources/entities/lantern.tres" id="15_lantern"]
 
 [resource]
 script = ExtResource("6_tbaj6")
@@ -32,6 +34,8 @@ entities = Dictionary[String, ExtResource("1_0bm4k")]({
 "player": ExtResource("7_360ra"),
 "stairs": ExtResource("8_tbaj6"),
 "sword": ExtResource("12_rl7wd"),
+"torch": ExtResource("14_torch"),
+"lantern": ExtResource("15_lantern"),
 "troll": ExtResource("9_mtrrw")
 })
 tiles = Dictionary[String, ExtResource("11_warjq")]({
