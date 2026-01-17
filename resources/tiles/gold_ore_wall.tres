@@ -1,22 +1,18 @@
 [gd_resource type="Resource" script_class="TileTemplate" load_steps=4 format=3 uid="uid://gold_wall_001"]
 
-[ext_resource type="Script" uid="uid://c2tn85e833n4m" path="res://src/MainGame/Map/tile_template.gd" id="1_tmpl"]
+[ext_resource type="Script" uid="uid://c2tn85e833n4m" path="res://src/MainGame/Map/tile_template.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://cpfsrucab00uj" path="res://assets/1bitPack/Tilesheet/monochrome_packed.png" id="2_atlas"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wall"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore"]
 atlas = ExtResource("2_atlas")
 region = Rect2(160, 272, 16, 16)
 
 [resource]
-script = ExtResource("1_tmpl")
+script = ExtResource("1_script")
 name = "Gold Vein"
-texture = SubResource("AtlasTexture_wall")
-blocks_movement = true
-blocks_sight = true
+texture = SubResource("AtlasTexture_ore")
 light_color = Color(1.0, 0.85, 0.0, 1)
 dark_color = Color(0.5, 0.42, 0.0, 1)
 mineable = true
 ore_type = "gold_ore"
-min_yield = 1
-max_yield = 1
 metadata/_custom_type_script = "uid://c2tn85e833n4m"
