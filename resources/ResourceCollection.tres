@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceCollection" load_steps=25 format=3 uid="uid://dhuel5llscocm"]
+[gd_resource type="Resource" script_class="ResourceCollection" load_steps=30 format=3 uid="uid://dhuel5llscocm"]
 
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="1_0bm4k"]
 [ext_resource type="Resource" uid="uid://corohn4y8go5s" path="res://resources/entities/healing_potion.tres" id="2_0bm4k"]
@@ -24,6 +24,11 @@
 [ext_resource type="Resource" uid="uid://silver_ore_001" path="res://resources/entities/silver_ore.tres" id="18_silver"]
 [ext_resource type="Resource" uid="uid://gold_ore_00001" path="res://resources/entities/gold_ore.tres" id="19_gold"]
 [ext_resource type="Resource" uid="uid://mithril_ore_01" path="res://resources/entities/mithril_ore.tres" id="20_mithril"]
+[ext_resource type="Resource" uid="uid://copper_dep_001" path="res://resources/entities/copper_deposit.tres" id="21_copper_dep"]
+[ext_resource type="Resource" uid="uid://iron_dep_00001" path="res://resources/entities/iron_deposit.tres" id="22_iron_dep"]
+[ext_resource type="Resource" uid="uid://silver_dep_01" path="res://resources/entities/silver_deposit.tres" id="23_silver_dep"]
+[ext_resource type="Resource" uid="uid://gold_dep_00001" path="res://resources/entities/gold_deposit.tres" id="24_gold_dep"]
+[ext_resource type="Resource" uid="uid://mithril_dep_1" path="res://resources/entities/mithril_deposit.tres" id="25_mithril_dep"]
 
 [resource]
 script = ExtResource("6_tbaj6")
@@ -46,7 +51,12 @@ entities = Dictionary[String, ExtResource("1_0bm4k")]({
 "iron_ore": ExtResource("17_iron"),
 "silver_ore": ExtResource("18_silver"),
 "gold_ore": ExtResource("19_gold"),
-"mithril_ore": ExtResource("20_mithril")
+"mithril_ore": ExtResource("20_mithril"),
+"copper_deposit": ExtResource("21_copper_dep"),
+"iron_deposit": ExtResource("22_iron_dep"),
+"silver_deposit": ExtResource("23_silver_dep"),
+"gold_deposit": ExtResource("24_gold_dep"),
+"mithril_deposit": ExtResource("25_mithril_dep")
 })
 tiles = Dictionary[String, ExtResource("11_warjq")]({
 "floor": ExtResource("12_e0bmq"),

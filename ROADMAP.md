@@ -33,18 +33,21 @@ Transforming the roguelike tutorial base into a mining-themed dungeon crawler.
 - [ ] Add light duration/fuel system (future)
 - [ ] Add darkness penalties (accuracy, enemy visibility) (future)
 
-### 1.2 Mining System
-- [ ] Create `MineableComponent` for ore deposits
-- [ ] Create `MineAction` (takes turns, makes noise)
-- [ ] Create `PickaxeComponent` (mining speed modifier)
-- [ ] Add ore entities: Copper, Iron, Silver, Gold, Mithril
-- [ ] Add pickaxe tiers: Rusty, Iron, Steel, Diamond
-- [ ] Implement carry weight/capacity system
+### 1.2 Mining System ✅ DONE
+- [x] Create `MineableComponent` for ore deposits
+- [x] Create `MineAction` (press M to select direction)
+- [x] Add ore deposit entities: Copper, Iron, Silver, Gold, Mithril
+- [x] Ore deposits spawn along room walls (depth-based rarity)
+- [x] Mining yields 1-3 ore, depletes deposit visually
+- [ ] Create `PickaxeComponent` (mining speed modifier) - future
+- [ ] Implement carry weight/capacity system - future
 
-### 1.3 Economy System
-- [ ] Add `GoldComponent` to player
-- [ ] Create ore selling mechanic
-- [ ] Implement price system (rarity-based)
+### 1.3 Economy System ✅ DONE
+- [x] Add `GoldComponent` to player (starts with 10g)
+- [x] Add `ValueComponent` for sellable items  
+- [x] Ore auto-sells when picked up
+- [x] Gold display in HUD side panel
+- [ ] Full merchant buy/sell system - needs town
 
 ---
 

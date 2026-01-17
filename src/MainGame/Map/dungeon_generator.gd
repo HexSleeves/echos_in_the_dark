@@ -10,6 +10,8 @@ var _max_monsters: int
 var _monster_weights: Dictionary[String, float]
 var _item_weights: Dictionary[String, float]
 var _max_items: int
+var _deposit_weights: Dictionary[String, float]
+var _max_deposits: int
 
 
 func _init(settings: DungeonSettings = DungeonSettings.new()) -> void:
@@ -109,6 +111,11 @@ func _calculate_weights() -> void:
 	for item_key: String in _settings.item_chances:
 		var item_weight: float = _settings.get_floor_value(_settings.item_chances[item_key], current_floor)
 		_item_weights[item_key] = item_weight
+	
+	_max_deposits = _settings.get_floor_value(_settings.max_deposits_per_room, current_floor)
+	for deposit_key: String in _settings.deposit_chances:
+		var deposit_weight: float = _settings.get_floor_value(_settings.deposit_chances[deposit_key], current_floor)
+		_deposit_weights[deposit_key] = deposit_weight
 
 
 func _place_entities_weighted(room: Rect2i, amount: int, weights: Dictionary[String, float]) -> void:
@@ -132,3 +139,42 @@ func _place_entities(room: Rect2i) -> void:
 	
 	var num_items: int = _rng.randi_range(0, _max_items)
 	_place_entities_weighted(room, num_items, _item_weights)
+	
+	# Place ore deposits along room walls
+	var num_deposits: int = _rng.randi_range(0, _max_deposits)
+	_place_deposits(room, num_deposits)
+
+
+func _place_deposits(room: Rect2i, amount: int) -> void:
+	# Place deposits on the inner edge of the room (adjacent to walls)
+	var edge_positions: Array[Vector2i] = []
+	
+	# Top and bottom edges (inside the room, next to wall)
+	for x: int in range(room.position.x + 1, room.end.x):
+		edge_positions.append(Vector2i(x, room.position.y + 1))  # Top edge
+		edge_positions.append(Vector2i(x, room.end.y - 1))       # Bottom edge
+	
+	# Left and right edges
+	for y: int in range(room.position.y + 2, room.end.y - 1):
+		edge_positions.append(Vector2i(room.position.x + 1, y))  # Left edge
+		edge_positions.append(Vector2i(room.end.x - 1, y))       # Right edge
+	
+	edge_positions.shuffle()
+	
+	var placed := 0
+	for pos: Vector2i in edge_positions:
+		if placed >= amount:
+			break
+		
+		# Check if position is empty
+		if not _map_data.get_entities_at_position(pos).is_empty():
+			continue
+		
+		# Select deposit type based on weights
+		if _deposit_weights.is_empty():
+			break
+		
+		var deposit_key: String = _deposit_weights.keys()[_rng.rand_weighted(_deposit_weights.values())]
+		var deposit: Entity = RESOURCE_COLLECTION.entities[deposit_key].reify()
+		_map_data.spawn_entity_at(deposit, pos)
+		placed += 1

@@ -16,6 +16,7 @@ enum Type {
 	Inventory,
 	Item,
 	Level,
+	Mineable,
 	MovementBlocker,
 	Player,
 	Position,

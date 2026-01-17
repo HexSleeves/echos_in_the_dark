@@ -77,6 +77,9 @@ func _on_event(event: InputEvent) -> void:
 	if event.is_action("pickup"):
 		_queued_action = PickupAction.new(_parent_entity)
 	
+	if event.is_action("mine"):
+		_handle_mine()
+	
 	if event.is_action("drop"):
 		var item: Entity = await _get_item("select an item to drop")
 		if item:
@@ -143,3 +146,15 @@ func _handle_pause_menu() -> void:
 			SignalBus.save.emit(_parent_entity.map_data, false)
 		PauseOptions.SaveAndQuit:
 			SignalBus.save.emit(_parent_entity.map_data, true)
+
+
+func _handle_mine() -> void:
+	# Let player choose a direction to mine
+	var position := PositionComponent.get_entity_position(_parent_entity)
+	var reticle_config := ReticleConfig.new(_parent_entity.map_data, position)
+	reticle_config.max_range = 1
+	reticle_config.on_select = func(target_pos: Vector2i) -> void:
+		var offset := target_pos - position
+		if offset != Vector2i.ZERO:
+			_queued_action = MineAction.new(_parent_entity, offset)
+	SignalBus.reticle_requested.emit(reticle_config)
