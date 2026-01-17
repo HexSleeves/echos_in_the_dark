@@ -4,8 +4,11 @@ extends Component
 signal duration_changed(current: int, max_duration: int)
 signal extinguished()
 
-## Maximum duration in turns
+## Maximum duration (fuel capacity)
 @export var max_duration: int = 100
+
+## Fuel consumed per turn (higher = burns faster)
+@export var burn_rate: int = 1
 
 ## Current remaining duration
 @export_storage var current_duration: int = -1  # -1 means use max_duration
@@ -39,9 +42,10 @@ func _on_turn_end() -> void:
 	# This is tricky - the item itself receives turn_end when it's in inventory
 	# We need to check via the equipment system
 	
-	# For now, decrease duration whenever the item exists and is lit
-	# The item will be in the player's inventory if equipped
-	current_duration -= 1
+	# Consume fuel based on burn rate
+	current_duration -= burn_rate
+	if current_duration < 0:
+		current_duration = 0
 	duration_changed.emit(current_duration, max_duration)
 	
 	if current_duration <= 0:

@@ -33,7 +33,8 @@ metadata/_custom_type_script = "uid://cd70fdldnl816"
 
 [sub_resource type="Resource" id="Resource_lightsource"]
 script = ExtResource("9_lightsource")
-max_duration = 200
+max_duration = 300
+burn_rate = 1
 metadata/_custom_type_script = "uid://s1h2njvv0bkp7"
 
 [resource]
