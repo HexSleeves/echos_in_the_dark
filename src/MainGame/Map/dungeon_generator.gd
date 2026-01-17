@@ -175,6 +175,6 @@ func _place_deposits(room: Rect2i, amount: int) -> void:
 			break
 		
 		var deposit_key: String = _deposit_weights.keys()[_rng.rand_weighted(_deposit_weights.values())]
-		var deposit: Entity = RESOURCE_COLLECTION.entities[deposit_key].reify()
+		var deposit = RESOURCE_COLLECTION.entities[deposit_key].reify()
 		_map_data.spawn_entity_at(deposit, pos)
 		placed += 1
