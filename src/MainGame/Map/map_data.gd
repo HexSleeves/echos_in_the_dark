@@ -80,7 +80,7 @@ func get_blocking_entity_at_position(position: Vector2i) -> Entity:
 	return null if blocking_entities.is_empty() else blocking_entities.front()
 
 
-func set_tile(tile_position: Vector2i, tile_template: TileTemplate) -> Tile:
+func set_tile(tile_position: Vector2i, tile_template) -> Tile:
 	if not Rect2i(Vector2i.ZERO, size).has_point(tile_position):
 		return null
 	var tile := Tile.new()
@@ -89,7 +89,7 @@ func set_tile(tile_position: Vector2i, tile_template: TileTemplate) -> Tile:
 	return tile
 
 
-func replace_tile(tile_position: Vector2i, tile_template: TileTemplate) -> Tile:
+func replace_tile(tile_position: Vector2i, tile_template) -> Tile:
 	"""Replace an existing tile at runtime, updating the visual."""
 	if not Rect2i(Vector2i.ZERO, size).has_point(tile_position):
 		return null

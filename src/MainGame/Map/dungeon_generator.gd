@@ -181,6 +181,7 @@ func _place_deposits(room: Rect2i, amount: int) -> void:
 			break
 		
 		var ore_wall_key: String = _deposit_weights.keys()[_rng.rand_weighted(_deposit_weights.values())]
-		var ore_tile: TileTemplate = RESOURCE_COLLECTION.tiles[ore_wall_key] as TileTemplate
-		_map_data.set_tile(pos, ore_tile)
+		var ore_tile = RESOURCE_COLLECTION.tiles.get(ore_wall_key)
+		if ore_tile:
+			_map_data.set_tile(pos, ore_tile)
 		placed += 1
