@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=12 format=3 uid="uid://gold_dep_00001"]
+[gd_resource type="Resource" script_class="Entity" load_steps=11 format=3 uid="uid://gold_dep_00001"]
 
 [ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_base"]
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="2_entity"]
