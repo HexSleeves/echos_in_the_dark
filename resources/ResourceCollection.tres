@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceCollection" load_steps=30 format=3 uid="uid://dhuel5llscocm"]
+[gd_resource type="Resource" script_class="ResourceCollection" load_steps=35 format=3 uid="uid://dhuel5llscocm"]
 
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="1_0bm4k"]
 [ext_resource type="Resource" uid="uid://corohn4y8go5s" path="res://resources/entities/healing_potion.tres" id="2_0bm4k"]
@@ -29,6 +29,11 @@
 [ext_resource type="Resource" uid="uid://silver_dep_01" path="res://resources/entities/silver_deposit.tres" id="23_silver_dep"]
 [ext_resource type="Resource" uid="uid://gold_dep_00001" path="res://resources/entities/gold_deposit.tres" id="24_gold_dep"]
 [ext_resource type="Resource" uid="uid://mithril_dep_1" path="res://resources/entities/mithril_deposit.tres" id="25_mithril_dep"]
+[ext_resource type="Resource" uid="uid://copper_wall_01" path="res://resources/tiles/copper_ore_wall.tres" id="26_copper_wall"]
+[ext_resource type="Resource" uid="uid://iron_wall_001" path="res://resources/tiles/iron_ore_wall.tres" id="27_iron_wall"]
+[ext_resource type="Resource" uid="uid://silver_wall_1" path="res://resources/tiles/silver_ore_wall.tres" id="28_silver_wall"]
+[ext_resource type="Resource" uid="uid://gold_wall_001" path="res://resources/tiles/gold_ore_wall.tres" id="29_gold_wall"]
+[ext_resource type="Resource" uid="uid://mithril_wall1" path="res://resources/tiles/mithril_ore_wall.tres" id="30_mithril_wall"]
 
 [resource]
 script = ExtResource("6_tbaj6")
@@ -60,5 +65,10 @@ entities = Dictionary[String, ExtResource("1_0bm4k")]({
 })
 tiles = Dictionary[String, ExtResource("11_warjq")]({
 "floor": ExtResource("12_e0bmq"),
-"wall": ExtResource("13_yhf55")
+"wall": ExtResource("13_yhf55"),
+"copper_ore_wall": ExtResource("26_copper_wall"),
+"iron_ore_wall": ExtResource("27_iron_wall"),
+"silver_ore_wall": ExtResource("28_silver_wall"),
+"gold_ore_wall": ExtResource("29_gold_wall"),
+"mithril_ore_wall": ExtResource("30_mithril_wall")
 })

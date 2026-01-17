@@ -50,11 +50,11 @@ extends Resource
 }
 
 @export var deposit_chances: Dictionary[String, Dictionary] = {
-	"copper_deposit": {1: 60},
-	"iron_deposit": {2: 30, 4: 50},
-	"silver_deposit": {4: 10, 6: 25},
-	"gold_deposit": {6: 5, 8: 15},
-	"mithril_deposit": {10: 3, 12: 10},
+	"copper_ore_wall": {1: 60},
+	"iron_ore_wall": {2: 30, 4: 50},
+	"silver_ore_wall": {4: 10, 6: 25},
+	"gold_ore_wall": {6: 5, 8: 15},
+	"mithril_ore_wall": {10: 3, 12: 10},
 }
 
 func get_floor_value(config_dict: Dictionary, current_floor: int) -> int:

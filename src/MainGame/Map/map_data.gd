@@ -3,6 +3,7 @@ extends Resource
 
 signal entity_sprite_spawned(entity_sprite)
 signal new_map_requested(new_map_floor)
+signal tile_sprite_added(tile_sprite)
 
 const BLOCKING_ENTITY_PATHFIND_WEIGHT = 5
 var _TILE_SIZE: Vector2 = ProjectSettings.get_setting("global/tile_size")
@@ -85,6 +86,31 @@ func set_tile(tile_position: Vector2i, tile_template: TileTemplate) -> Tile:
 	var tile := Tile.new()
 	tile.setup(tile_template, tile_position)
 	tiles[tile_position] = tile
+	return tile
+
+
+func replace_tile(tile_position: Vector2i, tile_template: TileTemplate) -> Tile:
+	"""Replace an existing tile at runtime, updating the visual."""
+	if not Rect2i(Vector2i.ZERO, size).has_point(tile_position):
+		return null
+	
+	# Remove old tile sprite
+	var old_tile: Tile = tiles.get(tile_position)
+	if old_tile:
+		var old_sprite = old_tile.get_sprite()
+		if old_sprite:
+			old_sprite.queue_free()
+	
+	# Create new tile
+	var tile := Tile.new()
+	tile.setup(tile_template, tile_position)
+	tile.is_explored = true  # Keep it explored since we're replacing
+	tile.is_in_view = fov.get(tile_position, false)
+	tiles[tile_position] = tile
+	
+	# Emit signal to add new sprite
+	tile_sprite_added.emit(tile.get_sprite())
+	
 	return tile
 
 

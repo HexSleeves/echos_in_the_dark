@@ -32,6 +32,7 @@ func set_map_data(new_map_data: MapData) -> void:
 		entity_node.queue_free()
 	_map_data = new_map_data
 	_map_data.entity_sprite_spawned.connect(entities.add_child)
+	_map_data.tile_sprite_added.connect(tiles.add_child)
 	_map_data.new_map_requested.connect(generate_new_dungeon)
 	#_map_data.draw_entities()
 	_map_data.call_deferred("draw_entities")

@@ -147,35 +147,39 @@ func _place_entities(room: Rect2i) -> void:
 
 
 func _place_deposits(room: Rect2i, amount: int) -> void:
-	# Place deposits on the inner edge of the room (adjacent to walls)
-	var edge_positions: Array[Vector2i] = []
+	# Place ore veins in walls adjacent to the room
+	var wall_positions: Array[Vector2i] = []
 	
-	# Top and bottom edges (inside the room, next to wall)
+	# Get wall positions adjacent to room (just outside the carved floor)
+	# Top wall
 	for x: int in range(room.position.x + 1, room.end.x):
-		edge_positions.append(Vector2i(x, room.position.y + 1))  # Top edge
-		edge_positions.append(Vector2i(x, room.end.y - 1))       # Bottom edge
+		wall_positions.append(Vector2i(x, room.position.y))
+	# Bottom wall
+	for x: int in range(room.position.x + 1, room.end.x):
+		wall_positions.append(Vector2i(x, room.end.y))
+	# Left wall
+	for y: int in range(room.position.y + 1, room.end.y):
+		wall_positions.append(Vector2i(room.position.x, y))
+	# Right wall
+	for y: int in range(room.position.y + 1, room.end.y):
+		wall_positions.append(Vector2i(room.end.x, y))
 	
-	# Left and right edges
-	for y: int in range(room.position.y + 2, room.end.y - 1):
-		edge_positions.append(Vector2i(room.position.x + 1, y))  # Left edge
-		edge_positions.append(Vector2i(room.end.x - 1, y))       # Right edge
-	
-	edge_positions.shuffle()
+	wall_positions.shuffle()
 	
 	var placed := 0
-	for pos: Vector2i in edge_positions:
+	for pos: Vector2i in wall_positions:
 		if placed >= amount:
 			break
 		
-		# Check if position is empty
-		if not _map_data.get_entities_at_position(pos).is_empty():
+		# Only place on regular walls
+		var current_tile: Tile = _map_data.tiles.get(pos)
+		if not current_tile or current_tile.template != RESOURCE_COLLECTION.tiles["wall"]:
 			continue
 		
-		# Select deposit type based on weights
+		# Select ore type based on weights
 		if _deposit_weights.is_empty():
 			break
 		
-		var deposit_key: String = _deposit_weights.keys()[_rng.rand_weighted(_deposit_weights.values())]
-		var deposit = RESOURCE_COLLECTION.entities[deposit_key].reify()
-		_map_data.spawn_entity_at(deposit, pos)
+		var ore_wall_key: String = _deposit_weights.keys()[_rng.rand_weighted(_deposit_weights.values())]
+		_map_data.set_tile(pos, RESOURCE_COLLECTION.tiles[ore_wall_key])
 		placed += 1
