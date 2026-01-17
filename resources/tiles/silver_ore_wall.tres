@@ -18,5 +18,5 @@ dark_color = Color(0.42, 0.42, 0.47, 1)
 mineable = true
 ore_type = "silver_ore"
 min_yield = 1
-max_yield = 2
+max_yield = 1
 metadata/_custom_type_script = "uid://c2tn85e833n4m"
