@@ -66,6 +66,9 @@ func equip(item: Entity, with_message: bool) -> bool:
 	equipped[slot] = item
 	if with_message:
 		Log.send_log("You equip %s." % item.get_entity_name())
+	# Recalculate FOV in case light source changed
+	if slot == Slot.LightSource:
+		_parent_entity.process_message(Message.new("recalculate_fov"))
 	return true
 
 
@@ -77,6 +80,9 @@ func unequip(item: Entity, with_message: bool) -> bool:
 		equipped.erase(slot)
 		if with_message:
 			Log.send_log("You unequip %s." % item.get_entity_name())
+		# Recalculate FOV in case light source changed
+		if slot == Slot.LightSource:
+			_parent_entity.process_message(Message.new("recalculate_fov"))
 		return true
 	return false
 

@@ -115,7 +115,8 @@ func _calculate_weights() -> void:
 	_max_deposits = _settings.get_floor_value(_settings.max_deposits_per_room, current_floor)
 	for deposit_key: String in _settings.deposit_chances:
 		var deposit_weight: float = _settings.get_floor_value(_settings.deposit_chances[deposit_key], current_floor)
-		_deposit_weights[deposit_key] = deposit_weight
+		if deposit_weight > 0:
+			_deposit_weights[deposit_key] = deposit_weight
 
 
 func _place_entities_weighted(room: Rect2i, amount: int, weights: Dictionary[String, float]) -> void:
