@@ -6,6 +6,11 @@ extends Component
 
 
 func apply_effect_precalculate(message: Message) -> void:
+	# Check if this is a light source that's extinguished
+	var light_source: LightSourceComponent = _parent_entity.get_component(Component.Type.LightSource)
+	if light_source and not light_source.is_lit:
+		return  # Don't apply effects if light is out
+	
 	for effect: EquippableEffect in effects:
 		effect.process_message_precalculate(message)
 

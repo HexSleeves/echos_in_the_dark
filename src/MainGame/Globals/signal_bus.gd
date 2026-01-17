@@ -7,3 +7,4 @@ signal reticle_requested(reticle_config)
 signal reticle_targets_selected
 signal save(map_data, and_quit)
 signal delete_save(and_quit)
+signal light_source_extinguished()

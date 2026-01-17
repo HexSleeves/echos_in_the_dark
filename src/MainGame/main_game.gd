@@ -10,6 +10,9 @@ const GAME_MENU = preload("res://src/MainGame/GUI/game_menu.tscn")
 @onready var dungeon_floor_label: Label = %DungeonFloorLabel
 @onready var character_level_label: Label = %CharacterLevelLabel
 @onready var gold_label: Label = %GoldLabel
+@onready var light_label: Label = %LightLabel
+
+var _player_entity: Entity
 
 
 func _ready() -> void:
@@ -39,6 +42,12 @@ func _on_world_map_data_set(map_data: MapData) -> void:
 		gold_label.text = "Gold: %d" % player_gold.gold
 		if not player_gold.gold_changed.is_connected(_on_gold_changed):
 			player_gold.gold_changed.connect(_on_gold_changed)
+	
+	# Light duration display
+	_player_entity = player_entity
+	_connect_light_source_signals()
+	_update_light_display()
+	SignalBus.light_source_extinguished.connect(_update_light_display)
 
 
 func _on_save(map_data: MapData, and_quit: bool) -> void:
@@ -73,6 +82,49 @@ func enter(data: Dictionary = {}) -> void:
 
 func _on_gold_changed(new_gold: int) -> void:
 	gold_label.text = "Gold: %d" % new_gold
+
+
+func _connect_light_source_signals() -> void:
+	if not _player_entity:
+		return
+	var equipment: EquipmentComponent = _player_entity.get_component(Component.Type.Equipment)
+	if not equipment:
+		return
+	var light_item: Entity = equipment.equipped.get(EquipmentComponent.Slot.LightSource)
+	if not light_item:
+		return
+	var light_source: LightSourceComponent = light_item.get_component(Component.Type.LightSource)
+	if light_source and not light_source.duration_changed.is_connected(_on_light_duration_changed):
+		light_source.duration_changed.connect(_on_light_duration_changed)
+
+
+func _on_light_duration_changed(_current: int, _max: int) -> void:
+	_update_light_display()
+
+
+func _update_light_display() -> void:
+	if not _player_entity:
+		light_label.text = "Light: --"
+		return
+	
+	var equipment: EquipmentComponent = _player_entity.get_component(Component.Type.Equipment)
+	if not equipment:
+		light_label.text = "Light: --"
+		return
+	
+	var light_item: Entity = equipment.equipped.get(EquipmentComponent.Slot.LightSource)
+	if not light_item:
+		light_label.text = "Light: None"
+		return
+	
+	var light_source: LightSourceComponent = light_item.get_component(Component.Type.LightSource)
+	if light_source:
+		if light_source.is_lit:
+			light_label.text = "Light: %d/%d" % [light_source.current_duration, light_source.max_duration]
+		else:
+			light_label.text = "Light: BURNED OUT"
+	else:
+		light_label.text = "Light: --"
 
 
 static func spawn_game_menu(title: String, options: Array, small_mode: bool = false) -> GameMenu:

@@ -35,7 +35,12 @@ func process_message_execute(message: Message) -> void:
 		func(e: Entity) -> EquippableComponent: return e.get_component(Component.Type.Equippable)
 	):
 		equippable_component.apply_effect_execute(message)
+	
 	match message.type:
+		"turn_end":
+			# Forward turn_end to equipped items (for light source duration)
+			for item: Entity in equipped.values():
+				item.process_message(message)
 		"equip_item":
 			var item: Entity = message.data.get("item")
 			if item:

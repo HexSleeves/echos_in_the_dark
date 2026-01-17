@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=13 format=3 uid="uid://lantern_ent_001"]
+[gd_resource type="Resource" script_class="Entity" load_steps=15 format=3 uid="uid://lantern_ent_001"]
 
 [ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_base"]
 [ext_resource type="Resource" uid="uid://ucbjo3vgbl24" path="res://resources/base_entities/base_item.tres" id="2_baseitem"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://5lohuj57enwf" path="res://src/MainGame/Entity/Components/Equippable/EquippableEffect/equippable_effect.gd" id="6_effect_base"]
 [ext_resource type="Script" uid="uid://rbdjtjbnxufns" path="res://src/MainGame/Entity/Components/Equippable/EquippableEffect/light_radius_equippable_effect.gd" id="7_light_effect"]
 [ext_resource type="Script" uid="uid://cd70fdldnl816" path="res://src/MainGame/Entity/Components/Equippable/equippable_component.gd" id="8_equippable"]
+[ext_resource type="Script" uid="uid://s1h2njvv0bkp7" path="res://src/MainGame/Entity/Components/light_source_component.gd" id="9_lightsource"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lantern"]
 atlas = ExtResource("5_tileset")
@@ -30,9 +31,14 @@ effects = Array[ExtResource("6_effect_base")]([SubResource("Resource_light_effec
 slot = 7
 metadata/_custom_type_script = "uid://cd70fdldnl816"
 
+[sub_resource type="Resource" id="Resource_lightsource"]
+script = ExtResource("9_lightsource")
+max_duration = 200
+metadata/_custom_type_script = "uid://s1h2njvv0bkp7"
+
 [resource]
 script = ExtResource("3_entity")
 name = "Lantern"
-initial_components = Array[ExtResource("1_base")]([SubResource("Resource_drawable"), SubResource("Resource_equippable")])
+initial_components = Array[ExtResource("1_base")]([SubResource("Resource_drawable"), SubResource("Resource_equippable"), SubResource("Resource_lightsource")])
 base_entity = ExtResource("2_baseitem")
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"

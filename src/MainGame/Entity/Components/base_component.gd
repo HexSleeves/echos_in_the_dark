@@ -16,6 +16,7 @@ enum Type {
 	Inventory,
 	Item,
 	Level,
+	LightSource,
 	Mineable,
 	MovementBlocker,
 	Player,

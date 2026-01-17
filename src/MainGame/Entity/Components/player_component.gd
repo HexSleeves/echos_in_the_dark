@@ -2,6 +2,14 @@ class_name PlayerComponent
 extends Component
 
 
+func _enter_entity() -> void:
+	SignalBus.light_source_extinguished.connect(_on_light_extinguished)
+
+
+func _on_light_extinguished() -> void:
+	_parent_entity.process_message(Message.new("recalculate_fov"))
+
+
 func process_message_execute(message: Message) -> void:
 	match message.type:
 		"died":

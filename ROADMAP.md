@@ -30,7 +30,9 @@ Transforming the roguelike tutorial base into a mining-themed dungeon crawler.
 - [x] Implement lantern entity (+8 radius, brighter)
 - [x] Player starts with equipped torch
 - [x] Add torch/lantern to dungeon loot tables
-- [ ] Add light duration/fuel system (future)
+- [x] Add light duration system (torches: 100 turns, lanterns: 200 turns)
+- [x] Light sources burn out and stop providing light
+- [x] HUD shows remaining light duration
 - [ ] Add darkness penalties (accuracy, enemy visibility) (future)
 
 ### 1.2 Mining System ✅ DONE
