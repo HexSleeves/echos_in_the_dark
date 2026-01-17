@@ -1,23 +1,24 @@
 [gd_resource type="Resource" script_class="Entity" load_steps=11 format=3 uid="uid://silver_dep_01"]
 
-[ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_base"]
+[ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_comp"]
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="2_entity"]
 [ext_resource type="Script" uid="uid://baots4c6rxh58" path="res://src/MainGame/Entity/Components/drawable_component.gd" id="3_drawable"]
-[ext_resource type="Texture2D" uid="uid://cpfsrucab00uj" path="res://assets/1bitPack/Tilesheet/monochrome_packed.png" id="4_tileset"]
+[ext_resource type="Texture2D" uid="uid://cpfsrucab00uj" path="res://assets/1bitPack/Tilesheet/monochrome_packed.png" id="4_atlas"]
 [ext_resource type="Script" uid="uid://3xl7k819lj0pe" path="res://src/MainGame/Entity/Components/mineable_component.gd" id="5_mineable"]
 [ext_resource type="Script" uid="uid://v01jgtc201sq" path="res://src/MainGame/Entity/Components/rememberable_component.gd" id="6_remember"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_deposit"]
-atlas = ExtResource("4_tileset")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dep"]
+atlas = ExtResource("4_atlas")
 region = Rect2(96, 176, 16, 16)
 
-[sub_resource type="Resource" id="Resource_drawable"]
+[sub_resource type="Resource" id="Resource_draw"]
 script = ExtResource("3_drawable")
-texture = SubResource("AtlasTexture_deposit")
+texture = SubResource("AtlasTexture_dep")
+render_order = 0
 color = Color(0.85, 0.85, 0.95, 1)
 metadata/_custom_type_script = "uid://baots4c6rxh58"
 
-[sub_resource type="Resource" id="Resource_mineable"]
+[sub_resource type="Resource" id="Resource_mine"]
 script = ExtResource("5_mineable")
 ore_type = "silver_ore"
 mining_time = 2
@@ -25,7 +26,7 @@ min_yield = 1
 max_yield = 2
 metadata/_custom_type_script = "uid://3xl7k819lj0pe"
 
-[sub_resource type="Resource" id="Resource_remember"]
+[sub_resource type="Resource" id="Resource_rem"]
 script = ExtResource("6_remember")
 remember_color = Color(0.6, 0.6, 0.7, 1)
 metadata/_custom_type_script = "uid://v01jgtc201sq"
@@ -33,5 +34,5 @@ metadata/_custom_type_script = "uid://v01jgtc201sq"
 [resource]
 script = ExtResource("2_entity")
 name = "Silver Deposit"
-initial_components = Array[ExtResource("1_base")]([SubResource("Resource_drawable"), SubResource("Resource_mineable"), SubResource("Resource_remember")])
+initial_components = Array[ExtResource("1_comp")]([SubResource("Resource_draw"), SubResource("Resource_mine"), SubResource("Resource_rem")])
 metadata/_custom_type_script = "uid://c4d0asmlvnv50"
