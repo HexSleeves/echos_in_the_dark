@@ -12,6 +12,7 @@ enum Type {
 	Equippable,
 	Fighter,
 	FOV,
+	Gold,
 	Inventory,
 	Item,
 	Level,
@@ -22,6 +23,7 @@ enum Type {
 	Stairs,
 	StatusEffects,
 	Use,
+	Value,
 	XP,
 }
 

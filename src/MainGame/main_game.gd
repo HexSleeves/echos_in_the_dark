@@ -9,6 +9,7 @@ const GAME_MENU = preload("res://src/MainGame/GUI/game_menu.tscn")
 @onready var xp_bar: Bar = %XpBar
 @onready var dungeon_floor_label: Label = %DungeonFloorLabel
 @onready var character_level_label: Label = %CharacterLevelLabel
+@onready var gold_label: Label = %GoldLabel
 
 
 func _ready() -> void:
@@ -31,6 +32,13 @@ func _on_world_map_data_set(map_data: MapData) -> void:
 			character_level_label.text = "Level %d" %new_level)
 	dungeon_floor_label.text = "Dungeon Floor %d" % map_data.current_floor
 	character_level_label.text = "Level %d" % player_level.current_level
+	
+	# Gold display
+	var player_gold: GoldComponent = player_entity.get_component(Component.Type.Gold)
+	if player_gold:
+		gold_label.text = "Gold: %d" % player_gold.gold
+		if not player_gold.gold_changed.is_connected(_on_gold_changed):
+			player_gold.gold_changed.connect(_on_gold_changed)
 
 
 func _on_save(map_data: MapData, and_quit: bool) -> void:
@@ -61,6 +69,10 @@ func enter(data: Dictionary = {}) -> void:
 		map.generate_new_dungeon()
 		Log.send_log("Hello and welcome, to yet another dungeon!")
 
+
+
+func _on_gold_changed(new_gold: int) -> void:
+	gold_label.text = "Gold: %d" % new_gold
 
 
 static func spawn_game_menu(title: String, options: Array, small_mode: bool = false) -> GameMenu:

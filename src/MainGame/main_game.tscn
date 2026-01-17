@@ -148,6 +148,11 @@ empty_color = Color(0, 0, 1, 1)
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="GoldLabel" type="Label" parent="VBoxContainer/SidePanel/MainPanelContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Gold: 0"
+
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/SidePanel/MainPanelContent"]
 layout_mode = 2
 

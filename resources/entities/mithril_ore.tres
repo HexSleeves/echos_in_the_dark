@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=10 format=3 uid="uid://mithril_ore_01"]
+
+[ext_resource type="Script" uid="uid://bwdv3pioi58ay" path="res://src/MainGame/Entity/Components/base_component.gd" id="1_base"]
+[ext_resource type="Resource" uid="uid://ucbjo3vgbl24" path="res://resources/base_entities/base_item.tres" id="2_baseitem"]
+[ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="3_entity"]
+[ext_resource type="Script" uid="uid://baots4c6rxh58" path="res://src/MainGame/Entity/Components/drawable_component.gd" id="4_drawable"]
+[ext_resource type="Texture2D" uid="uid://cpfsrucab00uj" path="res://assets/1bitPack/Tilesheet/monochrome_packed.png" id="5_tileset"]
+[ext_resource type="Script" uid="uid://kmqtg2uh3osn6" path="res://src/MainGame/Entity/Components/value_component.gd" id="6_value"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore"]
+atlas = ExtResource("5_tileset")
+region = Rect2(464, 176, 16, 16)
+
+[sub_resource type="Resource" id="Resource_drawable"]
+script = ExtResource("4_drawable")
+texture = SubResource("AtlasTexture_ore")
+color = Color(0.6, 0.9, 1.0, 1)
+metadata/_custom_type_script = "uid://baots4c6rxh58"
+
+[sub_resource type="Resource" id="Resource_value"]
+script = ExtResource("6_value")
+sell_value = 100
+metadata/_custom_type_script = "uid://kmqtg2uh3osn6"
+
+[resource]
+script = ExtResource("3_entity")
+name = "Mithril Ore"
+initial_components = Array[ExtResource("1_base")]([SubResource("Resource_drawable"), SubResource("Resource_value")])
+base_entity = ExtResource("2_baseitem")
+metadata/_custom_type_script = "uid://c4d0asmlvnv50"

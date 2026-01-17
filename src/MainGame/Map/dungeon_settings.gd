@@ -40,6 +40,12 @@ extends Resource
 	"chain_mail": {6: 15},
 	"torch": {1: 40},
 	"lantern": {3: 15, 5: 25},
+	# Ores - more valuable ones appear deeper
+	"copper_ore": {1: 50},
+	"iron_ore": {2: 30, 4: 40},
+	"silver_ore": {4: 15, 6: 25},
+	"gold_ore": {6: 10, 8: 20},
+	"mithril_ore": {10: 5, 12: 15},
 }
 
 func get_floor_value(config_dict: Dictionary, current_floor: int) -> int:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceCollection" load_steps=20 format=3 uid="uid://dhuel5llscocm"]
+[gd_resource type="Resource" script_class="ResourceCollection" load_steps=25 format=3 uid="uid://dhuel5llscocm"]
 
 [ext_resource type="Script" uid="uid://c4d0asmlvnv50" path="res://src/MainGame/Entity/entity.gd" id="1_0bm4k"]
 [ext_resource type="Resource" uid="uid://corohn4y8go5s" path="res://resources/entities/healing_potion.tres" id="2_0bm4k"]
@@ -19,6 +19,11 @@
 [ext_resource type="Resource" uid="uid://tgfnn0dsowxm" path="res://resources/tiles/wall.tres" id="13_yhf55"]
 [ext_resource type="Resource" uid="uid://torch_entity_001" path="res://resources/entities/torch.tres" id="14_torch"]
 [ext_resource type="Resource" uid="uid://lantern_ent_001" path="res://resources/entities/lantern.tres" id="15_lantern"]
+[ext_resource type="Resource" uid="uid://copper_ore_0001" path="res://resources/entities/copper_ore.tres" id="16_copper"]
+[ext_resource type="Resource" uid="uid://iron_ore_00001" path="res://resources/entities/iron_ore.tres" id="17_iron"]
+[ext_resource type="Resource" uid="uid://silver_ore_001" path="res://resources/entities/silver_ore.tres" id="18_silver"]
+[ext_resource type="Resource" uid="uid://gold_ore_00001" path="res://resources/entities/gold_ore.tres" id="19_gold"]
+[ext_resource type="Resource" uid="uid://mithril_ore_01" path="res://resources/entities/mithril_ore.tres" id="20_mithril"]
 
 [resource]
 script = ExtResource("6_tbaj6")
@@ -36,7 +41,12 @@ entities = Dictionary[String, ExtResource("1_0bm4k")]({
 "sword": ExtResource("12_rl7wd"),
 "torch": ExtResource("14_torch"),
 "lantern": ExtResource("15_lantern"),
-"troll": ExtResource("9_mtrrw")
+"troll": ExtResource("9_mtrrw"),
+"copper_ore": ExtResource("16_copper"),
+"iron_ore": ExtResource("17_iron"),
+"silver_ore": ExtResource("18_silver"),
+"gold_ore": ExtResource("19_gold"),
+"mithril_ore": ExtResource("20_mithril")
 })
 tiles = Dictionary[String, ExtResource("11_warjq")]({
 "floor": ExtResource("12_e0bmq"),
