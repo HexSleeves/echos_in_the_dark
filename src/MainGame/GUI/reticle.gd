@@ -118,17 +118,16 @@ func on_event(event: InputEvent) -> void:
 	
 	# Enforce max_range if set
 	if _max_range > 0:
-		var distance := absi(new_position.x - _initial_position.x) + absi(new_position.y - _initial_position.y)
 		var chebyshev := maxi(absi(new_position.x - _initial_position.x), absi(new_position.y - _initial_position.y))
 		if chebyshev <= _max_range:
 			_grid_position = new_position
 	else:
 		_grid_position = new_position
-	elif event.is_action_pressed("zoom_in"):
+	
+	if event.is_action_pressed("zoom_in"):
 		_camera_state.zoom += 1
 	elif event.is_action_pressed("zoom_out"):
 		_camera_state.zoom -= 1
-	
 	elif event.is_action_pressed("ui_cancel"):
 		deactivate(false)
 	elif event.is_action_pressed("ui_accept"):
